@@ -1,8 +1,9 @@
 const express = require('express');
+const app = express();
 
 app.get('*', (req, res) => {
-  res.send({'jlab': rocks});
+  res.send({'jlab': "rocks"});
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT);
