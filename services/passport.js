@@ -5,10 +5,11 @@ const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
+//put the user.id in the header
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
-
+//take the id out of the header
 passport.deserializeUser((id, done) => {
   User.findById(id).then(user => {
     done(null, user);
