@@ -16,7 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <a href="/auth/google">Sign in with Google</a>
         <BrowserRouter>
           <div>
             <Header />
