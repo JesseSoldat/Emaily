@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import Header from './Header';
+import Dashboard from './Dashboard';
+import Landing from './Landing';
+import SurveyNew from './surveys/SurveyNew';
 
+//BrowserRouter expects only one child <div></div>
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-      
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
         <a href="/auth/google">Sign in with Google</a>
-        
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/surveys" component={Dashboard} />
+            <Route exact path="/surveys/new" component={SurveyNew} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
