@@ -17,7 +17,7 @@ ReactDOM.render(
 document.getElementById('root'));
 registerServiceWorker();
 
-console.log('Stripe Key is: ', process.env.REACT_APP_STRIPE_KEY);
-console.log('ENV', process.env.NODE_ENV);
+// console.log('Stripe Key is: ', process.env.REACT_APP_STRIPE_KEY);
+// console.log('ENV', process.env.NODE_ENV);
 
 
