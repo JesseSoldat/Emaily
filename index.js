@@ -29,7 +29,7 @@ require('./routes/billingRoutes')(app);
 if(process.env.NODE_ENV === 'production') {
   console.log(process.env.NODE_ENV);
 
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, 'client/build')));
 
   const path = require('path');
 
